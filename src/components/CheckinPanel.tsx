@@ -66,7 +66,7 @@ const CheckinPanel: React.FC = () => {
     };
 
     // Procesar entrada de la Zebra
-    const handleZebraSubmit = (e: React.FormEvent) => {
+    const handleZebraSubmit = (e: React.SubmitEvent) => {
         e.preventDefault();
         if (!inputZebra) return;
 
@@ -142,15 +142,58 @@ const CheckinPanel: React.FC = () => {
             )}
 
             <style>{`
-                .container { max-width: 500px; margin: auto; padding: 20px; font-family: 'Segoe UI', sans-serif; }
-                .info-card { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-bottom: 20px; text-align: center; }
-                .admin-controls { background: #f8fafc; padding: 20px; border-radius: 15px; border: 2px solid #e2e8f0; }
-                .field { margin-bottom: 15px; }
-                .btn-checkin { width: 100%; padding: 15px; background: #2563eb; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.2s; }
-                .btn-checkin:hover { background: #1d4ed8; }
-                .btn-checkin:disabled { background: #cbd5e1; cursor: not-allowed; }
-                .zebra-status { font-size: 0.8rem; margin-top: 15px; text-align: center; color: #64748b; }
-                select { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 5px; }
+                .container { 
+                    max-width: 500px; 
+                    margin: auto; 
+                    padding: 20px; 
+                    font-family: 'Segoe UI', sans-serif; 
+                }
+                .info-card { 
+                    background: white; 
+                    padding: 25px; 
+                    border-radius: 15px; 
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+                    margin-bottom: 20px; text-align: center; 
+                }
+                .admin-controls { 
+                    background: #f8fafc; 
+                    padding: 20px; 
+                    border-radius: 15px; 
+                    border: 2px solid #e2e8f0; 
+                }
+                .field { 
+                    margin-bottom: 15px; 
+                }
+                .btn-checkin { 
+                    width: 100%; padding: 15px; 
+                    background: #2563eb; 
+                    color: white; 
+                    border: none; 
+                    border-radius: 10px; 
+                    font-weight: 600; 
+                    cursor: pointer; 
+                    transition: 0.2s; 
+                }
+                .btn-checkin:hover { 
+                    background: #1d4ed8; 
+                }
+                .btn-checkin:disabled { 
+                    background: #cbd5e1; 
+                    cursor: not-allowed; 
+                }
+                .zebra-status { 
+                    font-size: 0.8rem; 
+                    margin-top: 15px; 
+                    text-align: center; 
+                    color: #64748b; 
+                }
+                select { 
+                    width: 100%; 
+                    padding: 12px; 
+                    border-radius: 8px; 
+                    border: 1px solid #cbd5e1; 
+                    margin-top: 5px; 
+                }
             `}</style>
         </div>
     );
