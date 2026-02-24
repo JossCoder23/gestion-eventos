@@ -5,6 +5,7 @@ import { useAuthStore } from '../store/authStore';
 import type { Participante, PuntoInteraccion, ApiResponse } from '../types';
 
 const CheckinPanel: React.FC = () => {
+    
     const { uuid } = useParams<{ uuid: string }>();
     const navigate = useNavigate();
     

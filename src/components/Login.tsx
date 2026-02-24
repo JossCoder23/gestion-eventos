@@ -4,13 +4,16 @@ import type { LoginResponse } from '../types';
 import { useAuthStore } from '../store/authStore';
 
 const Login: React.FC = () => { // Ya no recibe props
-    const [credentials, setCredentials] = useState({ email: '', password: '' });
-    const [loading, setLoading] = useState(false);
+
+    const [ credentials, setCredentials ] = useState({ email: '', password: '' });
+    const [ loading, setLoading ] = useState(false);
     const setUser = useAuthStore((state) => state.setUser); // Obtenemos la acción del store
 
     const handleSubmit = async (e: React.SubmitEvent) => {
+
         e.preventDefault();
         setLoading(true);
+
         try {
             await api.get('/sanctum/csrf-cookie', { baseURL: 'https://comerciald11.sg-host.com' });
             const { data } = await api.post<LoginResponse>('/login', credentials);
@@ -22,28 +25,29 @@ const Login: React.FC = () => { // Ya no recibe props
         } finally {
             setLoading(false);
         }
+
     };
 
     return (
-        <div style={styles.loginWrapper}>
-            <form onSubmit={handleSubmit} style={styles.loginForm}>
+        <div style={ styles.loginWrapper }>
+            <form onSubmit={ handleSubmit } style={ styles.loginForm }>
                 <h2>Staff Login</h2>
                 <input 
                     type="email" 
                     placeholder="Correo" 
                     required 
-                    style={styles.input}
-                    onChange={e => setCredentials({...credentials, email: e.target.value})}
+                    style={ styles.input }
+                    onChange={ e => setCredentials( { ...credentials, email: e.target.value }) }
                 />
                 <input 
                     type="password" 
                     placeholder="Contraseña" 
                     required 
-                    style={styles.input}
-                    onChange={e => setCredentials({...credentials, password: e.target.value})}
+                    style={ styles.input }
+                    onChange={ e => setCredentials( { ...credentials, password: e.target.value }) }
                 />
-                <button type="submit" disabled={loading} style={styles.button}>
-                    {loading ? 'Entrando...' : 'Iniciar Sesión'}
+                <button type="submit" disabled={ loading } style={ styles.button }>
+                    { loading ? 'Entrando...' : 'Iniciar Sesión' }
                 </button>
             </form>
         </div>

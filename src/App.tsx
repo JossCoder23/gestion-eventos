@@ -4,6 +4,7 @@ import Login from './components/Login';
 import CheckinPanel from './components/CheckinPanel';
 
 const App: React.FC = () => {
+    
     const { user, isAuthenticated, checkAuth } = useAuthStore();
 
     useEffect(() => {
